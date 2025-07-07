@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bloodServiceApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Blood Service</title>
+    <link rel="stylesheet" href="s1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MainController">
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index3a21.html">Home</a>
+        <a href="sindex2.html">Search Donor</a>
+        <a href="rindex2.html">Register as Donor</a>
+        <a href="admin21.html">Admin</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Emergency Blood Service</h1>
+        <p>Find blood donors in your area or register as a donor to help others in need.</p>
+        <div class="cta-buttons">
+            <a href="sindex2.html" class="btn">Find a Donor</a>
+            <a href="rindex2.html" class="btn">Become a Donor</a>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <h2>Our Impact</h2>
+        <div class="stat-boxes">
+            <div class="stat-box">
+                <h3>{{totalDonors}}</h3>
+                <p>Registered Donors</p>
+            </div>
+            <div class="stat-box">
+                <h3>{{bloodRequestsFulfilled}}</h3>
+                <p>Blood Requests Fulfilled</p>
+            </div>
+            <div class="stat-box">
+                <h3>{{activeDonors}}</h3>
+                <p>Active Donors Available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Section -->
+    <section class="eligibility">
+        <h2>Who Can Donate?</h2>
+        <ul>
+            <li>✔ Age between 18-65 years</li>
+            <li>✔ Weigh more than 50 kg</li>
+            <li>✔ No recent illnesses</li>
+            <li>✔ No tattoos in the last 6 months</li>
+        </ul>
+    </section>
+
+    <!-- Emergency Contact Section -->
+    <section class="emergency">
+        <h2>Emergency Contacts</h2>
+        <p>For urgent blood requests, contact:</p>
+        <p><strong>Hospital Helpline:</strong> +123-456-7890</p>
+        <p><strong>Blood Bank:</strong> +987-654-3210</p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div ng-repeat="faq in faqs">
+            <h3>{{faq.question}}</h3>
+            <p>{{faq.answer}}</p>
+        </div>
+    </section>
+
+    <script>
+        var app = angular.module('bloodServiceApp', []);
+        app.controller('MainController', function ($scope) {
+            // Statistics (These can be fetched dynamically later)
+            $scope.totalDonors = 1500;
+            $scope.bloodRequestsFulfilled = 1200;
+            $scope.activeDonors = 300;
+
+            // FAQs Data
+            $scope.faqs = [
+                { question: "How often can I donate blood?", answer: "You can donate blood every 3 months." },
+                { question: "Is donating blood safe?", answer: "Yes, it is completely safe and helps save lives." },
+                { question: "Do I need to fast before donating?", answer: "No, but avoid fatty foods before donation." }
+            ];
+        });
+    </script>
+
+</body>
+</html>
